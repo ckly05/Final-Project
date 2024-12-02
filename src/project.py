@@ -40,6 +40,11 @@ def main():
 
     clock = pygame.time.Clock()
 
+    background = pygame.image.load("background.png")
+    fish_image = pygame.image.load("fish.png")
+    player_image = pygame.image.load("player_fish.png")
+    food_image = pygame.image.load("food.png")
+
     running = True
     while running:
         for event in pygame.event.get():
