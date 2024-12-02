@@ -18,7 +18,15 @@ import random
 import math
 
 class Fish:
-    ...
+    def __init__(self, image_path):
+        self.pos = [
+            random.randint(100, 1820),
+            random.randint(100, 980)
+        ]
+        self.speed = random.uniform(1, 2)
+        self.angle = random.uniform(0, 2 * math.pi)
+        self.image = pygame.image.load(image_path)
+        self.image_scale = pygame.transform.scale(self.image,(50, 30))
 
 class PlayerFish:
     ...
