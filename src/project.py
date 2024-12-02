@@ -13,6 +13,10 @@
 # Create a function for score display of food collected
 # Create a function to create the aquarium background
 
+import pygame
+import random
+import math
+
 class Fish:
     ...
 
@@ -29,7 +33,22 @@ def display_score():
     ...
 
 def main():
-    ...
+    pygame.init
+    resolution = (1920,1080)
+    screen = pygame.display.set_mode(resolution)
+    pygame.display.set_caption("Aquarium Simulation")
+
+    clock = pygame.time.Clock()
+
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        clock.tick(30)
+
+    pygame.quit()
 
 if __name__ == "__main__":
     main()
