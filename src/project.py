@@ -92,7 +92,9 @@ class Food:
         screen.blit(self.image, self.pos)
 
 def check_collision(player, food):
-    
+    player_rect = pygame.Rect(player.pos[0] - 75, player.pos[1] - 45, 150, 90)
+    food_rect = pygame.Rect(food.pos[0], food.pos[1], 30, 30)
+    return player_rect.colliderect(food_rect)
 
 # def draw_aquarium():
     ...
