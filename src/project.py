@@ -26,7 +26,7 @@ class Fish:
         self.speed = random.uniform(1, 2)
         self.angle = random.uniform(0, 2 * math.pi)
         self.image = pygame.image.load(image_path)
-        self.image_scale = pygame.transform.scale(self.image, (50, 30))
+        self.image_scaled = pygame.transform.scale(self.image, (50, 30))
     
     def move(self):
         self.pos[0] += self.speed * math.cos(self.angle)
@@ -60,7 +60,7 @@ def display_score():
     ...
 
 def main():
-    pygame.init
+    pygame.init()
     resolution = (1920,1080)
     screen = pygame.display.set_mode(resolution)
     pygame.display.set_caption("Aquarium Simulation")
@@ -73,7 +73,7 @@ def main():
     player_image = pygame.image.load("player_fish.png")
     food_image = pygame.image.load("food.png")
 
-    fish_list = [Fish(fish.png) for _ in range(10)]
+    fish_list = [Fish("fish.png") for _ in range(10)]
 
     running = True
     while running:
