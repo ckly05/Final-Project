@@ -68,7 +68,7 @@ class PlayerFish:
         if keys[pygame.K_LEFT]:
             self.pos[0] -= self.speed
             self.angle = 180
-        if keys[pygame.K_Right]:
+        if keys[pygame.K_RIGHT]:
             self.pos[0] += self.speed
             self.angle = 0
 
