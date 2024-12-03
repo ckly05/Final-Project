@@ -42,6 +42,11 @@ class Fish:
         elif self.pos[1] > 1080:
             self.pos[1] = 0
 
+    def draw(self, screen):
+        rotated_image = pygame.transform.rotate(self.image_scaled, -math.degrees(self.angle))
+        rect = rotated_image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
+        screen.blit(rotated_image, rect.topleft)
+
 class PlayerFish:
     ...
 
