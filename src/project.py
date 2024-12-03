@@ -27,6 +27,20 @@ class Fish:
         self.angle = random.uniform(0, 2 * math.pi)
         self.image = pygame.image.load(image_path)
         self.image_scale = pygame.transform.scale(self.image,(50, 30))
+    
+    def move(self):
+        self.pos[0] += self.speed * math.cos(self.angle)
+        self.pos[1] += self.speed * math.sin(self.angle)
+
+        if self.pos[0] < 0:
+            self.pos[0] = 1920
+        elif self.pos[0] > 1920:
+            self.pos[0] = 0
+
+        if self.pos[1] < 0:
+            self.pos[1] = 1080
+        elif self.pos[1] > 1080:
+            self.pos[1] = 0
 
 class PlayerFish:
     ...
