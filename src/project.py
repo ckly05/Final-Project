@@ -26,7 +26,7 @@ class Fish:
         self.speed = random.uniform(1, 2)
         self.angle = random.uniform(0, 2 * math.pi)
         self.image = pygame.image.load(image_path)
-        self.image_scale = pygame.transform.scale(self.image,(50, 30))
+        self.image_scale = pygame.transform.scale(self.image, (50, 30))
     
     def move(self):
         self.pos[0] += self.speed * math.cos(self.angle)
@@ -68,9 +68,12 @@ def main():
     clock = pygame.time.Clock()
 
     background = pygame.image.load("background.png")
+    background = pygame.transform.scale(background, resolution)
     fish_image = pygame.image.load("fish.png")
     player_image = pygame.image.load("player_fish.png")
     food_image = pygame.image.load("food.png")
+
+    fish_list = [Fish(fish.png) for _ in range(10)]
 
     running = True
     while running:
@@ -78,6 +81,13 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+        screen.blit(background, (0, 0))
+
+        for fish in fish_list:
+            fish.move()
+            fish.draw(screen)
+
+        pygame.display.flip()
         clock.tick(30)
 
     pygame.quit()
