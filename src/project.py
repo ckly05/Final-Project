@@ -88,6 +88,9 @@ class Food:
         ]
         self.image = pygame.transform.scale(image, (30, 30))
 
+    def draw(self, screen):
+        screen.blit(self.image, self.pos)
+
 # def draw_aquarium():
     ...
 
