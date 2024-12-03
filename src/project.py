@@ -60,6 +60,18 @@ class PlayerFish:
         self.image_scaled = pygame.transform.scale(self.image, (100, 60))
         self.angle = 0
 
+    def move(self, keys):
+        if keys[pygame.K_UP]:
+            self.pos[1] -= self.speed
+        if keys[pygame.K_DOWN]:
+            self.pos[1] += self.speed
+        if keys[pygame.K_LEFT]:
+            self.pos[0] -= self.speed
+            self.angle = 180
+        if keys[pygame.K_Right]:
+            self.pos[0] += self.speed
+            self.angle = 0
+
 # class Food:
     ...
 
