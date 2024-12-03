@@ -99,11 +99,15 @@ def main():
 
     background = pygame.image.load("background.png")
     background = pygame.transform.scale(background, resolution)
+
     fish_image = pygame.image.load("fish.png")
     player_image = pygame.image.load("player_fish.png")
+
     #food_image = pygame.image.load("food.png")
 
     fish_list = [Fish(fish_image) for _ in range(10)]
+
+    player_fish = PlayerFish(player_image)
 
     running = True
     while running:
@@ -111,11 +115,16 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+        keys = pygame.key.get_pressed()
+        player_fish.move(keys)
+
         screen.blit(background, (0, 0))
 
         for fish in fish_list:
             fish.move()
             fish.draw(screen)
+
+        player_fish.draw(screen)
 
         pygame.display.flip()
         clock.tick(30)
