@@ -72,6 +72,14 @@ class PlayerFish:
             self.pos[0] += self.speed
             self.angle = 0
 
+        self.pos[0] = max(0, min(1920, self.pos[0]))
+        self.pos[1] = max(0, min(1080, self.pos[1]))
+
+    def draw(self, screen):
+        rotated_image = pygame.transform.rotate(self.image_scaled, self.angle)
+        rect = rotated_image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
+        screen.blit(rotated_image, rect.topleft)
+
 # class Food:
     ...
 
