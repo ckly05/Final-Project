@@ -57,7 +57,7 @@ class PlayerFish:
         self.pos = list(start_pos)
         self.speed = 5
         self.image = image
-        self.image_scaled = pygame.transform.scale(self.image, (100, 60))
+        self.image_scaled = pygame.transform.scale(self.image, (150, 90))
         self.angle = 0
 
     def move(self, keys):
@@ -80,8 +80,13 @@ class PlayerFish:
         rect = rotated_image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
         screen.blit(rotated_image, rect.topleft)
 
-# class Food:
-    ...
+class Food:
+    def __init__(self, image):
+        self.pos = [
+            random.randint(50, 1870),
+            random.randint(50, 1030)
+        ]
+        self.image = pygame.transform.scale(image, (30, 30))
 
 # def draw_aquarium():
     ...
@@ -103,7 +108,7 @@ def main():
     fish_image = pygame.image.load("fish.png")
     player_image = pygame.image.load("player_fish.png")
 
-    #food_image = pygame.image.load("food.png")
+    food_image = pygame.image.load("food.png")
 
     fish_list = [Fish(fish_image) for _ in range(10)]
 
