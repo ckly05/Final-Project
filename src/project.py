@@ -18,15 +18,20 @@ import random
 import math
 
 class Fish:
-    def __init__(self, image_path):
+    def __init__(self, image):
         self.pos = [
             random.randint(100, 1820),
             random.randint(100, 980)
         ]
         self.speed = random.uniform(1, 2)
         self.angle = random.uniform(0, 2 * math.pi)
-        self.image = pygame.image.load(image_path)
-        self.image_scaled = pygame.transform.scale(self.image, (100, 60))
+
+        self.size = random.uniform(0.1, 0.2)
+
+        original_width, original_height = image.get_size()
+        scaled_width = int(original_width * self.size)
+        scaled_height = int(original_height * self.size)
+        self.image_scaled = pygame.transform.scale(image, (scaled_width, scaled_height))
     
     def move(self):
         self.pos[0] += self.speed * math.cos(self.angle)
@@ -69,11 +74,11 @@ def main():
 
     background = pygame.image.load("background.png")
     background = pygame.transform.scale(background, resolution)
-    #fish_image = pygame.image.load("fish.png")
+    fish_image = pygame.image.load("fish.png")
     #player_image = pygame.image.load("player_fish.png")
     #food_image = pygame.image.load("food.png")
 
-    fish_list = [Fish("fish.png") for _ in range(10)]
+    fish_list = [Fish(fish_image) for _ in range(10)]
 
     running = True
     while running:
