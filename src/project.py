@@ -26,7 +26,7 @@ class Fish:
         self.speed = random.uniform(1, 2)
         self.angle = random.uniform(0, 2 * math.pi)
         self.image = pygame.image.load(image_path)
-        self.image_scaled = pygame.transform.scale(self.image, (50, 30))
+        self.image_scaled = pygame.transform.scale(self.image, (100, 60))
     
     def move(self):
         self.pos[0] += self.speed * math.cos(self.angle)
@@ -47,16 +47,16 @@ class Fish:
         rect = rotated_image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
         screen.blit(rotated_image, rect.topleft)
 
-class PlayerFish:
+# class PlayerFish:
     ...
 
-class Food:
+# class Food:
     ...
 
-def draw_aquarium():
+# def draw_aquarium():
     ...
 
-def display_score():
+# def display_score():
     ...
 
 def main():
@@ -69,9 +69,9 @@ def main():
 
     background = pygame.image.load("background.png")
     background = pygame.transform.scale(background, resolution)
-    fish_image = pygame.image.load("fish.png")
-    player_image = pygame.image.load("player_fish.png")
-    food_image = pygame.image.load("food.png")
+    #fish_image = pygame.image.load("fish.png")
+    #player_image = pygame.image.load("player_fish.png")
+    #food_image = pygame.image.load("food.png")
 
     fish_list = [Fish("fish.png") for _ in range(10)]
 
