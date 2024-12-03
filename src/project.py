@@ -91,6 +91,9 @@ class Food:
     def draw(self, screen):
         screen.blit(self.image, self.pos)
 
+def check_collision(player, food):
+    
+
 # def draw_aquarium():
     ...
 
@@ -117,6 +120,8 @@ def main():
 
     player_fish = PlayerFish(player_image)
 
+    food_list = [Food(food_image) for _ in range(5)]
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -131,6 +136,12 @@ def main():
         for fish in fish_list:
             fish.move()
             fish.draw(screen)
+
+        for food in food_list[:]:
+            if check_collision(player_fish, food):
+                food_list.remove(food)
+            else:
+                food.draw(screen)
 
         player_fish.draw(screen)
 
