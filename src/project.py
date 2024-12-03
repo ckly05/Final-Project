@@ -52,8 +52,13 @@ class Fish:
         rect = rotated_image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
         screen.blit(rotated_image, rect.topleft)
 
-# class PlayerFish:
-    ...
+class PlayerFish:
+    def __init__(self, image, start_pos=(960, 540)):
+        self.pos = list(start_pos)
+        self.speed = 5
+        self.image = image
+        self.image_scaled = pygame.transform.scale(self.image, (100, 60))
+        self.angle = 0
 
 # class Food:
     ...
@@ -75,7 +80,7 @@ def main():
     background = pygame.image.load("background.png")
     background = pygame.transform.scale(background, resolution)
     fish_image = pygame.image.load("fish.png")
-    #player_image = pygame.image.load("player_fish.png")
+    player_image = pygame.image.load("player_fish.png")
     #food_image = pygame.image.load("food.png")
 
     fish_list = [Fish(fish_image) for _ in range(10)]
