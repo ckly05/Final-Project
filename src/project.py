@@ -122,6 +122,9 @@ def main():
 
     food_list = [Food(food_image) for _ in range(5)]
 
+    score = 0
+    font = pygame.font.Font(None, 36)
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -140,10 +143,13 @@ def main():
         for food in food_list[:]:
             if check_collision(player_fish, food):
                 food_list.remove(food)
+                score += 1
             else:
                 food.draw(screen)
 
         player_fish.draw(screen)
+
+        display_score(screen, score, font)
 
         pygame.display.flip()
         clock.tick(30)
