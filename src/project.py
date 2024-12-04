@@ -97,7 +97,7 @@ def check_collision(player, food):
     return player_rect.colliderect(food_rect)
 
 def display_score(screen, score, font):
-    score_text = font.reader(f"Score: {score}", True, (255, 255, 255))
+    score_text = font.render(f"Score: {score}", True, (255, 255, 255))
     screen.blit(score_text, (10, 10))
 
 def main():
