@@ -96,11 +96,9 @@ def check_collision(player, food):
     food_rect = pygame.Rect(food.pos[0], food.pos[1], 30, 30)
     return player_rect.colliderect(food_rect)
 
-# def draw_aquarium():
-    ...
-
-# def display_score():
-    ...
+def display_score(screen, score, font):
+    score_text = font.reader(f"Score: {score}", True, (255, 255, 255))
+    screen.blit(score_text, (10, 10))
 
 def main():
     pygame.init()
