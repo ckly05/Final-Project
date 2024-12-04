@@ -86,7 +86,7 @@ class Food:
             random.randint(50, 1870),
             random.randint(50, 1030)
         ]
-        self.image = pygame.transform.scale(image, (30, 30))
+        self.image = pygame.transform.scale(image, (60, 60))
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
