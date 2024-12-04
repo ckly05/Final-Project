@@ -76,6 +76,7 @@ class PlayerFish:
         self.pos[1] = max(0, min(1080, self.pos[1]))
 
     def draw(self, screen):
+
         rotated_image = pygame.transform.rotate(self.image_scaled, self.angle)
         rect = rotated_image.get_rect(center=(int(self.pos[0]), int(self.pos[1])))
         screen.blit(rotated_image, rect.topleft)
@@ -98,7 +99,7 @@ def check_collision(player, food):
 
 def display_score(screen, score, font):
     score_text = font.render(f"Score: {score}", True, (255, 255, 255))
-    screen.blit(score_text, (10, 10))
+    screen.blit(score_text, (20, 20))
 
 def main():
     pygame.init()
@@ -123,7 +124,7 @@ def main():
     food_list = [Food(food_image) for _ in range(5)]
 
     score = 0
-    font = pygame.font.Font(None, 36)
+    font = pygame.font.Font(None, 72)
 
     running = True
     while running:
