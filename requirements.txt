@@ -1,1 +1,13 @@
+Libraries
+
 pygame
+math
+random
+
+
+Assets
+
+background.png (Background image for the aquarium)
+fish.png (Represents the AI fish characters)
+player_fish.png (Represents the Player fish character)
+food.png (Represents the food for the fish)
